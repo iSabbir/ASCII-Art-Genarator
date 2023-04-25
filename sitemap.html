@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const blogUrl = 'https://gadgetfusionlab.blogspot.com';
+        const maxResults = 500;
+
+        function loadSitemap() {
+            const sitemapUrl = `${blogUrl}/feeds/posts/default?alt=json-in-script&max-results=${maxResults}&callback=renderSitemap`;
+
+            $.ajax({
+                url: sitemapUrl,
+                dataType: 'jsonp'
+            });
+        }
+
+        function renderSitemap(jsonData) {
+            let html = '<ul>';
+
+            jsonData.feed.entry.forEach(entry => {
+                const postTitle = entry.title.$t;
+                const postUrl = entry.link.find(link => link.rel === 'alternate').href;
+                const postDate = new Date(entry.published.$t).toLocaleDateString();
+
+                html += `<li><a href="${postUrl}">${postTitle}</a> - <small>${postDate}</small></li>`;
+            });
+
+            html += '</ul>';
+
+            document.getElementById('sitemap-container').innerHTML = html;
+        }
+
+        $(document).ready(() => {
+            loadSitemap();
+        });
+    </script>
+</head>
+<body>
+    <div id="sitemap-container"></div>
+</body>
+</html>
