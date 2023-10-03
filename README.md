@@ -35,7 +35,7 @@ cd ASCII-Art-Genarator</code></pre>
         <pre><code>pip install pyfiglet</code></pre>
     </li>
     <li><strong>Run the script</strong>:
-        <pre><code>python script_name.py</code></pre>
+        <pre><code>python main.py</code></pre>
     </li>
 </ol>
 
