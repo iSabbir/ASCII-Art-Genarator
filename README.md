@@ -15,7 +15,7 @@
 </p>
 
 <div style="text-align:center;">
-    <img src="path-to-your-demo-image.png" alt="Demo Image of ASCII Art Generator">
+    <img src="https://i.ibb.co/bN19DLQ/image.png" alt="Demo Image of ASCII Art Generator">
 </div>
 
 <h2>🚀 Features</h2>
